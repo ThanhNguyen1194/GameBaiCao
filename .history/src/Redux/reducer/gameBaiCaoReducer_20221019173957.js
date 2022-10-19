@@ -164,7 +164,7 @@ const gameBaiCaoReducer = createSlice({
                     listMaxScorePlayer.forEach((maxScorePlayer) => {
                         if (maxScorePlayer.name === player.name) {
                             player.win = true
-                            player.point += parseInt((initialState.gambleScores * listLosePlayer.length) / listMaxScorePlayer.length) + initialState.gambleScores
+                            player.point += parseInt(initialState.gambleScores * listLosePlayer.length / listMaxScorePlayer.length) + initialState.gambleScores
                         }
                     })
                     if (player.point < initialState.gambleScores) {
