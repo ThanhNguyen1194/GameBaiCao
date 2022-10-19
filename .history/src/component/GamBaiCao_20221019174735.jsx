@@ -31,11 +31,7 @@ export default function GamBaiCao(props) {
               <img src="./images/back-card.jpg" alt="" />
               <img src="./images/back-card.jpg" alt="" />
             </div>
-            <h3 className="font-italic">
-              Point: {item.point}
-              <br />
-              Gamble: {gambleScores}
-            </h3>
+            <h3 className="font-italic">Point: {item.point}</h3>
             <h3 className="font-weight-bolder">{item.name}</h3>
             <h3 className="font-italic">Point of 3 cards: </h3>
           </div>
