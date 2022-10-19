@@ -31,19 +31,13 @@ export default function GamBaiCao(props) {
               <img src="./images/back-card.jpg" alt="" />
               <img src="./images/back-card.jpg" alt="" />
             </div>
-            <div className="playerContent">
-              <div className="userPoint">
-                <h3 className="font-italic">
-                  Point: {item.point}
-                  <br />
-                  Gamble: {gambleScores}
-                </h3>
-              </div>
-              <div className="userDetail">
-                <h3 className="font-weight-bolder">{item.name}</h3>
-                <h3 className="font-italic">Point of 3 cards: </h3>
-              </div>
-            </div>
+            <h3 className="font-italic">
+              Point: {item.point}
+              <br />
+              Gamble: {gambleScores}
+            </h3>
+            <h3 className="font-weight-bolder">{item.name}</h3>
+            <h3 className="font-italic">Point of 3 cards: </h3>
           </div>
         );
       } else {
@@ -54,8 +48,8 @@ export default function GamBaiCao(props) {
               <img src={item.cards[1]?.image} alt="" />
               <img src={item.cards[2]?.image} alt="" />
             </div>
-            <div className="playerContent">
-              <div className="userPoint">
+            <div>
+              <div>
                 <h3 className="font-italic">
                   Point: {item.point}
                   <br />
@@ -69,19 +63,18 @@ export default function GamBaiCao(props) {
                   )}
                 </h3>
               </div>
-              <div className="userDetail">
-                <h3 className="font-weight-bolder">
-                  {item.name}{" "}
-                  {item.win === false ? (
-                    <span className="text-danger">Lose</span>
-                  ) : item.win === true ? (
-                    <span className="text-success">WIN</span>
-                  ) : (
-                    ""
-                  )}
-                </h3>
-                <h3 className="font-italic">Point of 3 cards:{item.total}</h3>
-              </div>
+
+              <h3 className="font-weight-bolder">
+                {item.name}{" "}
+                {item.win === false ? (
+                  <span className="text-danger">Lose</span>
+                ) : item.win === true ? (
+                  <span className="text-success">WIN</span>
+                ) : (
+                  ""
+                )}
+              </h3>
+              <h3 className="font-italic">Point of 3 cards:{item.total}</h3>
             </div>
           </div>
         );
