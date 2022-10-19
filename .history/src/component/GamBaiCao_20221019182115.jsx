@@ -65,9 +65,11 @@ export default function GamBaiCao(props) {
               {item.name}{" "}
               {item.win === false ? (
                 <span className="text-danger">Lose</span>
-              ) : item.win === true ? (
+              ) : // <span className="text-success">WIN</span>
+              item.win === true ? (
                 <span className="text-success">WIN</span>
               ) : (
+                // <span className="text-danger">Lose</span>
                 ""
               )}
             </h3>

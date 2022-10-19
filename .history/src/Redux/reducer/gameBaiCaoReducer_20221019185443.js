@@ -156,6 +156,9 @@ const gameBaiCaoReducer = createSlice({
                 if (player[i].value > maxScore) {
                     maxScore = player[i].value
                 }
+                if (player[i].value < maxScore) {
+                    player[i].win = false
+                }
 
             }
             const listMaxScorePlayer = player.filter((player) => player.value === maxScore)

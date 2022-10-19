@@ -172,15 +172,13 @@ const gameBaiCaoReducer = createSlice({
                             player.win = true
                             player.point += parseInt((initialState.gambleScores * listLosePlayer.length) / listMaxScorePlayer.length) + initialState.gambleScores
                             return
+                        } else if (player.status === true) {
+                            player.win = false
                         }
                     })
-
                     if (player.point < initialState.gambleScores) {
                         player.status = false
 
-                    }
-                    if (player.status === true && player.value < maxScore) {
-                        player.win = false
                     }
                     player.value = null
                 })

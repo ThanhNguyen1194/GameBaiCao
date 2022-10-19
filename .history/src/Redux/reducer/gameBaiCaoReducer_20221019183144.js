@@ -163,7 +163,6 @@ const gameBaiCaoReducer = createSlice({
             const listPlayerAcctive = player.filter((player) =>
                 player.status === true
             )
-            console.log(listMaxScorePlayer)
             if (listPlayerAcctive.length > 1) {
 
                 player.forEach((player) => {
@@ -171,16 +170,13 @@ const gameBaiCaoReducer = createSlice({
                         if (maxScorePlayer.name === player.name) {
                             player.win = true
                             player.point += parseInt((initialState.gambleScores * listLosePlayer.length) / listMaxScorePlayer.length) + initialState.gambleScores
-                            return
+                        } else if (player.status === true) {
+                            player.win = false
                         }
                     })
-
                     if (player.point < initialState.gambleScores) {
                         player.status = false
 
-                    }
-                    if (player.status === true && player.value < maxScore) {
-                        player.win = false
                     }
                     player.value = null
                 })

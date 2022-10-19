@@ -179,9 +179,6 @@ const gameBaiCaoReducer = createSlice({
                         player.status = false
 
                     }
-                    if (player.status === true && player.value < maxScore) {
-                        player.win = false
-                    }
                     player.value = null
                 })
             }

@@ -70,7 +70,6 @@ const gameBaiCaoReducer = createSlice({
             for (let i = 0; i < state.player.length; i++) {
                 state.player[i].cards = []
                 state.player[i].win = null
-                state.player[i].total = null
             }
         },
         playerCard: (state, action) => {
@@ -117,12 +116,7 @@ const gameBaiCaoReducer = createSlice({
                         return total;
                     }, 0)
                     item.win = null
-                    if (item.status === true) {
-
-                        item.total = totalNumber
-                    } else {
-                        item.total = null
-                    }
+                    item.total = totalNumber
                     item.value = totalNumber % 10
                     let prioritized = 0;
                     item.cards.forEach((card) => {
@@ -163,7 +157,6 @@ const gameBaiCaoReducer = createSlice({
             const listPlayerAcctive = player.filter((player) =>
                 player.status === true
             )
-            console.log(listMaxScorePlayer)
             if (listPlayerAcctive.length > 1) {
 
                 player.forEach((player) => {
@@ -171,16 +164,11 @@ const gameBaiCaoReducer = createSlice({
                         if (maxScorePlayer.name === player.name) {
                             player.win = true
                             player.point += parseInt((initialState.gambleScores * listLosePlayer.length) / listMaxScorePlayer.length) + initialState.gambleScores
-                            return
                         }
                     })
-
                     if (player.point < initialState.gambleScores) {
                         player.status = false
 
-                    }
-                    if (player.status === true && player.value < maxScore) {
-                        player.win = false
                     }
                     player.value = null
                 })
@@ -195,7 +183,7 @@ const gameBaiCaoReducer = createSlice({
                 player.status = true
                 player.total = null
                 player.value = null
-                player.win = null
+                player.win = false
             })
         }
 
