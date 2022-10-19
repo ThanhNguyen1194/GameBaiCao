@@ -9,3 +9,18 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 
+###`Shuffler` 
+
+create a new deck card
+
+### `Draw` 
+
+Draw card
+
+### `Reveal` 
+
+Show result
+
+### `Reset` 
+
+Reset game
