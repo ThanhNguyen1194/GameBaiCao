@@ -24,3 +24,5 @@ Show result
 ### `Reset` 
 
 Reset game
+
+![image](https://user-images.githubusercontent.com/95956937/196655089-ad72e783-612b-47ba-9f57-b4d85771323d.png)
