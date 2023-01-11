@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import gameBaiCaoReducer, {
+import {
   drawCardApi,
   getNewDeckApi,
   resetCard,
@@ -10,11 +10,14 @@ import gameBaiCaoReducer, {
 export default function GamBaiCao(props) {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getNewDeckApi());
+  }, []);
+
   const { newDeck, player, gambleScores } = useSelector(
     (state) => state.gameBaiCaoReducer
   );
-  // console.log("deck", newDeck);
-  // console.log("player", player);
+
   const listPlayer = player.filter((player) => player.status === true);
 
   const renderUser = () => {
@@ -127,6 +130,7 @@ export default function GamBaiCao(props) {
             className="resetBtn"
             onClick={() => {
               dispatch(resetCard());
+              dispatch(getNewDeckApi());
             }}
           >
             Reset

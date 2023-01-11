@@ -78,13 +78,19 @@ const gameBaiCaoReducer = createSlice({
             const listPlayerAcctive = state.player.filter((player) =>
                 player.status === true
             )
+
             if (listPlayerAcctive.length > 1) {
 
                 for (let i = 0; i < state.player.length; i++) {
                     state.player[i].cards = []
+                    if (state.player[i].point < initialState.gambleScores) {
+                        state.player[i].status = false
+
+                    }
                     if (state.player[i].status === true) {
                         state.player[i].point -= initialState.gambleScores
                     }
+
                 }
                 const { cards, remaining } = action.payload
                 state.newDeck.remaining = remaining
@@ -188,6 +194,7 @@ const gameBaiCaoReducer = createSlice({
         },
 
         resetCard: (state, action) => {
+
             state.newDeck.remaining = 0
             state.player.forEach((player) => {
                 player.point = initPoint
